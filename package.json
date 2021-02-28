@@ -10,7 +10,9 @@
     "jest": "^26.0.1",
     "prettier": "^1.19.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jspath": "^0.4.0"
+  },
   "scripts": {
     "format:fix": "prettier --write **/*.{js,ts,md}",
     "test": "jest"

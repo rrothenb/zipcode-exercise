@@ -4,6 +4,29 @@ This challenge will allow you demostrate your knowledge and understanding of nod
 It is intended to be familar, much like a development story that could come up on the job.
 After you submit the completed project, we will schedule a follow-up code-review.
 
+## The Solution
+
+This implementation leverages the [jspath](https://www.npmjs.com/package/jspath) package for parsing and executing queries.  It exposes
+the full `Object predicates` syntax which is documented [here](https://www.npmjs.com/package/jspath#object-predicates).
+
+## Known issues
+
+This solution lacks the ability to find the closest latitude/longitude and instead allows you to
+define a bounding box for location that will return all zip codes within the box.
+
+### Sample Event
+
+```json
+{
+  "httpMethod": "GET",
+  "path": "/",
+  "headers": {},
+  "queryStringParameters": {
+    "query": ".estimated_population > 14000 && .estimated_population < 15000 && .state == \"ME\""
+  }
+}
+```
+
 ## The Story
 
 **Create a lambda-like handler function that can query zip code data in various ways**
@@ -40,30 +63,6 @@ After you submit the completed project, we will schedule a follow-up code-review
   "longitude": "-73.35",
   "country": "US",
   "estimated_population": "5873"
-}
-```
-
-### Sample Events
-
-```json
-{
-  "httpMethod": "GET",
-  "path": "/resource",
-  "headers": {},
-  "queryStringParameters": {
-    "date": "2020-11-13"
-  }
-}
-```
-
-```json
-{
-  "httpMethod": "POST",
-  "path": "/resouce",
-  "headers": {
-    "content-type": "application/json"
-  },
-  "body": "{\"title\":\"hello world\"}"
 }
 ```
 
